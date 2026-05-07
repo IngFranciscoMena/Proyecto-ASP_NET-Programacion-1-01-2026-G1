@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -15,6 +16,7 @@ public partial class Usuario
 
     public string Correo { get; set; } = null!;
 
+    [DisplayName("Usuario")]
     public string NombreUsuario { get; set; } = null!;
 
     public string Contrasena { get; set; } = null!;
@@ -25,7 +27,9 @@ public partial class Usuario
 
     public int IdEstado { get; set; }
 
+    // propiedades de navegación
+    [DisplayName("Estado")]
     public virtual EstadosUsuario IdEstadoNavigation { get; set; } = null!;
-
+    [DisplayName("Rol")]
     public virtual Role IdRolNavigation { get; set; } = null!;
 }

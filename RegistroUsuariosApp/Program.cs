@@ -11,6 +11,12 @@ var connectionString = builder.Configuration.GetConnectionString("DefaulConnecti
 
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 
+// crear un control a las vistas
+builder.Services.AddControllersWithViews(options =>
+{
+    options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true;
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

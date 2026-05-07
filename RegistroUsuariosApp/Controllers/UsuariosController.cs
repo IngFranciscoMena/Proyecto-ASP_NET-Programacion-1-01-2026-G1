@@ -87,8 +87,8 @@ namespace RegistroUsuariosApp.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdEstado"] = new SelectList(_context.EstadosUsuarios, "IdEstado", "IdEstado", usuario.IdEstado);
-            ViewData["IdRol"] = new SelectList(_context.Roles, "IdRol", "IdRol", usuario.IdRol);
+            ViewData["Estados"] = new SelectList(_context.EstadosUsuarios, "IdEstado", "NombreEstado");
+            ViewData["Roles"] = new SelectList(_context.Roles, "IdRol", "NombreRol");
             return View(usuario);
         }
 
@@ -124,8 +124,8 @@ namespace RegistroUsuariosApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdEstado"] = new SelectList(_context.EstadosUsuarios, "IdEstado", "IdEstado", usuario.IdEstado);
-            ViewData["IdRol"] = new SelectList(_context.Roles, "IdRol", "IdRol", usuario.IdRol);
+            ViewData["Estados"] = new SelectList(_context.EstadosUsuarios, "IdEstado", "NombreEstado");
+            ViewData["Roles"] = new SelectList(_context.Roles, "IdRol", "NombreRol");
             return View(usuario);
         }
 
